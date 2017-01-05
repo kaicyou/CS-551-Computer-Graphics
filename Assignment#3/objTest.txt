@@ -1,0 +1,117 @@
+/* Place this in the same file as your main program */
+
+#include "ObjLoader.h"
+
+void loadAndDrawObj(char *fname)
+{
+	ObjModel data;
+	ObjLoader LoaderClass;
+
+	LoaderClass.LoadObj(fname);
+	data = LoaderClass.ReturnObj();
+
+
+	//For flat shading, only make one call to osuNormal in the beginning, and use the following
+	// to access the faceNormal
+	//
+	//
+	// osuNormal((data.TriangleArray[i].faceNormal[0], 
+	//		 (data.TriangleArray[i].faceNormal[1], 
+	//		  data.TriangleArray[i].faceNormal[2]); 
+		
+	for(int i = 0; i < data[j].NumTriangle; i++)  {						
+
+		osuBegin(OSU_TRIANGLE);
+
+
+		osuNormal((data.NormalArray[data.TriangleArray[i].Vertex[0]].X, 
+				(data.NormalArray[data.TriangleArray[i].Vertex[0]].Y, 
+				data.NormalArray[data.TriangleArray[i].Vertex[0]].Z); 
+		osuVertex((data[j]).VertexArray[data.TriangleArray[i].Vertex[0]].X, 
+				(data[j]).VertexArray[data.TriangleArray[i].Vertex[0]].Y, 
+				data[j].VertexArray[(data.TriangleArray[i].Vertex[0]].Z);
+
+	
+		osuNormal(data.NormalArray[data.TriangleArray[i].Vertex[1]].X, 
+				data.NormalArray[data.TriangleArray[i].Vertex[1]].Y, 
+				data.NormalArray[data.TriangleArray[i].Vertex[1]].Z); 
+		osuVertex(data.VertexArray[data.TriangleArray[i].Vertex[1]].X, 
+				data.VertexArray[data.TriangleArray[i].Vertex[1]].Y, 
+				data.VertexArray[data.TriangleArray[i].Vertex[1]].Z);
+
+		osuNormal(data.NormalArray[data.TriangleArray[i].Vertex[2]].X, 
+				data.NormalArray[data.TriangleArray[i].Vertex[2]].Y, 
+				data.NormalArray[data.TriangleArray[i].Vertex[2]].Z); 
+		osuVertex(data.VertexArray[data.TriangleArray[i].Vertex[2]].X, 
+				data.VertexArray[data.TriangleArray[i].Vertex[2]].Y, 
+				data.VertexArray[data.TriangleArray[i].Vertex[2]].Z);
+		osuEnd();
+
+	}
+}
+
+
+void objTest()
+{
+	osuPerspective(90.0, 1.0, 1000);
+	osuClear(0.0,0.0,0.0);	
+	
+	float from[3]={0.0,1,-3.0};
+	float at[3] = {0.0,0.0,10.0};
+	float up[3] = {0.0, 1.0, 0.0};
+
+	osuLookat (from, at, up);
+	//Diffuse blue color
+	osuDiffuse(0.0, 0.0 , 1.0 );
+
+	//Specular white color
+	osuSpecular(1.0, 1.0, 1.0, 5.0);
+
+	float lpos[3]={0.0, 3.0, -4.0};
+
+	osuPointLight(lpos,0.7);
+	osuAmbientLight(0.2);
+
+	// To test flath shading, use test.obj 
+	// Look at it from behind... ie osuLookAt(0,1,-3, 0,0,10,0,1,0)
+	loadAndDrawObj("test.obj");
+
+	// To test smooth shading, use face.ws.obj
+	// Look at it from in front osuLookAt(0, 0, 2, 0, 0, 0, 0, 1, 0)
+	//loadAndDrawObj("face.ws.obj");
+}
+
+
+void main(int argc , char **argv)
+{
+    int xsize = 360;
+    int ysize = 360;
+
+  
+    int num = atoi(argv[1]);
+
+
+    /* create a framebuffer */
+    osuBeginGraphics (xsize, ysize);
+
+    osuFlush();
+
+   /* initialize the matrix stack */
+    osuInitialize();
+    osuEnable (OSU_DEPTH_TEST);
+ 
+  
+  switch (num) {
+    case 1:
+     osuShadeModel(OSU_FLAT);
+     objTest();
+     break;
+    default("No such test case\n");
+  }
+
+  osuFlush();
+  printf ("Press 'escape' to exit.\n");
+  osuWaitOnEscape();
+  osuEndGraphics();
+
+}
