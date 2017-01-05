@@ -1,0 +1,27 @@
+﻿Build started 3/17/2015 8:58:52 PM.
+     1>Project "Z:\public_html\term2\term2\term2.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt main.cpp
+         main.cpp
+     1>z:\public_html\term2\term2\main.cpp(113): warning C4305: 'argument' : truncation from 'double' to 'GLfloat'
+     1>z:\public_html\term2\term2\main.cpp(202): warning C4305: 'initializing' : truncation from 'double' to 'float'
+     1>z:\public_html\term2\term2\main.cpp(203): warning C4305: 'initializing' : truncation from 'double' to 'float'
+     1>z:\public_html\term2\term2\main.cpp(274): warning C4305: 'argument' : truncation from 'double' to 'GLclampf'
+     1>z:\public_html\term2\term2\main.cpp(316): warning C4305: 'argument' : truncation from 'double' to 'GLclampf'
+     1>z:\public_html\term2\term2\main.cpp(404): warning C4101: 'real_coordinate_z' : unreferenced local variable
+     1>z:\public_html\term2\term2\main.cpp(446): warning C4101: 'winY' : unreferenced local variable
+     1>z:\public_html\term2\term2\main.cpp(446): warning C4101: 'winZ' : unreferenced local variable
+     1>z:\public_html\term2\term2\main.cpp(446): warning C4101: 'winX' : unreferenced local variable
+     1>z:\public_html\term2\term2\main.cpp(478): warning C4305: 'argument' : truncation from 'double' to 'GLclampf'
+     1>z:\public_html\term2\term2\main.cpp(509): warning C4305: 'argument' : truncation from 'double' to 'GLclampf'
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"Z:\public_html\term2\Debug\term2.exe" /INCREMENTAL /NOLOGO /LIBPATH:Z:\public_html\term2 kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib opengl32.lib glu32.lib glut32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"Z:\public_html\term2\Debug\term2.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"Z:\public_html\term2\Debug\term2.lib" /MACHINE:X86 Debug\main.obj
+         Debug\ObjLoader.obj
+         Debug\osuGraphics.obj
+         Debug\osuVector.obj
+         term2.vcxproj -> Z:\public_html\term2\Debug\term2.exe
+     1>Done Building Project "Z:\public_html\term2\term2\term2.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:01.34
